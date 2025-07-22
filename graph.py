@@ -75,6 +75,13 @@ for ij in range(jj-2, -1, -1):
           c[ij, ia, il] = l[il]+ (1.0+r)*a[ia] - a[iaplus[ij, ia, il]]
           v[ij, ia, il] = reward[iaplus[ij, ia, il]]
 
+# initialization
+v = np.zeros((jj, NA, NL))
+iaplus = np.zeros((jj, NA, NL), dtype=int)
+aplus = np.zeros((jj, NA, NL))
+aplus_no_pension = np.zeros((jj, NA, NL))
+aplus_with_pension = np.zeros((jj, NA, NL))
+c = np.zeros((jj, NA, NL))
 
 tax = 0.3
 middle_age = range(20, 40)
