@@ -36,7 +36,6 @@ v = np.zeros((jj, NA, NL))
 iaplus = np.zeros((jj, NA, NL), dtype=int)
 aplus = np.zeros((jj, NA, NL))
 aplus_no_pension = np.zeros((jj, NA, NL))
-aplus_with_pension = np.zeros((jj, NA, NL))
 c = np.zeros((jj, NA, NL))
 
 old_age = range(40, 60)
@@ -79,7 +78,6 @@ for ij in range(jj-2, -1, -1):
 v = np.zeros((jj, NA, NL))
 iaplus = np.zeros((jj, NA, NL), dtype=int)
 aplus = np.zeros((jj, NA, NL))
-aplus_no_pension = np.zeros((jj, NA, NL))
 aplus_with_pension = np.zeros((jj, NA, NL))
 c = np.zeros((jj, NA, NL))
 
