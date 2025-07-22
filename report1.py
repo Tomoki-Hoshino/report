@@ -37,12 +37,16 @@ iaplus = np.zeros((jj, NA, NL), dtype=int)
 aplus = np.zeros((jj, NA, NL))
 c = np.zeros((jj, NA, NL))
 
+old_age = range(40, 60)
+
 # period jj
 for ia in range(NA):
-  for il in range(NL):
-    v[jj-1, ia, ] = util(l[il] + (1.0+r)*a[ia], gamma)
-    aplus[jj-1, ia, il] = 0.0
-    c[jj-1, ia, il] = l[il]+ (1.0+r)*a[ia]
+    for il in range(NL):
+        income = 0 
+        cons = income + (1.0 + r) * a[ia]
+        v[jj-1, ia, il] = util(cons, gamma)
+        aplus[jj-1, ia, il] = 0.0
+        c[jj-1, ia, il] = cons
 
 # backward induction from jj-1 to 1
 for ij in range(jj-2, -1, -1):
@@ -55,7 +59,13 @@ for ij in range(jj-2, -1, -1):
               for ilp in range(NL): #期待値を取る
                   EV += prob[il,ilp]*v[ij+1,iap,ilp] #ilpが変動する
 
-              reward[iap] = util(l[il] + (1.0+r)*a[ia] - a[iap], gamma) + beta*EV
+            if ij in old_age:
+                    income = 0
+            else:
+                    income = l[il]
+               
+            cons = income + (1.0 + r) * a[ia] - a[iap]
+            reward[iap] = util(cons, gamma) + beta*EV
 
           iaplus[ij, ia, il] = np.argmax(reward) #max
           aplus[ij, ia, il] = a[iaplus[ij, ia, il]]
