@@ -60,9 +60,9 @@ for ij in range(jj-2, -1, -1):
                   EV += prob[il,ilp]*v[ij+1,iap,ilp] #ilpが変動する
 
             if ij in old_age:
-                    income = 0
+                income = 0
             else:
-                    income = l[il]
+                income = l[il]
                
             cons = income + (1.0 + r) * a[ia] - a[iap]
             reward[iap] = util(cons, gamma) + beta*EV
