@@ -55,8 +55,8 @@ for ij in range(jj-2, -1, -1):
           reward = np.zeros(NA)
           for iap in range(NA):
 
-              EV = 0.0
-              for ilp in range(NL): #期待値を取る
+            EV = 0.0
+            for ilp in range(NL): #期待値を取る
                   EV += prob[il,ilp]*v[ij+1,iap,ilp] #ilpが変動する
 
             if ij in old_age:
