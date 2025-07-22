@@ -45,7 +45,7 @@ for ij in middle_age:
     for ia in range(NA):
       tax_revenue += tax_rate * l[il] * mu_2[il]
 
-print("政府の総収入"tax_revenue * len(middle_age))
+print("政府の総収入",tax_revenue * len(middle_age))
 
 tax_total = tax_revenue * len(middle_age)
 tax_return = tax_total * (1 + r)
