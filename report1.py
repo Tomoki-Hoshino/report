@@ -79,7 +79,7 @@ avg_lifetime_utility = 0.0
 for il in range(NL):
     avg_lifetime_utility += mu_1[il] * v[0, ia0, il]
 
-print("Aggregate expected lifetime utility", avg_lifetime_utility)
+print("Aggregate expected lifetime utility no pension", avg_lifetime_utility)
 
 
 plt.figure()
