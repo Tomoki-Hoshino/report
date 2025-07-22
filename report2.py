@@ -25,6 +25,18 @@ for il in range(NL):
     for ilp in range(NL):
         mu_2[ilp] += prob[il,ilp]*mu_1[il]
 
+# grids
+a_l = 0.0
+a_u = 10.0
+NA = 100
+a = np.linspace(a_l, a_u, NA)
+
+# initialization
+v = np.zeros((jj, NA, NL))
+iaplus = np.zeros((jj, NA, NL), dtype=int)
+aplus = np.zeros((jj, NA, NL))
+c = np.zeros((jj, NA, NL))
+
 middle_age = range(20, 40)
 tax_rate = 0.3
 tax_revenue = 0.0
