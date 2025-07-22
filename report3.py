@@ -87,6 +87,15 @@ for ij in range(jj-2, -1, -1):
           c[ij, ia, il] = l[il]+ (1.0+r)*a[ia] - a[iaplus[ij, ia, il]]
           v[ij, ia, il] = reward[iaplus[ij, ia, il]]
 
+#4
+ia0 = 0
+
+avg_lifetime_utility = 0.0
+for il in range(NL):
+    avg_lifetime_utility += mu_1[il] * v[0, ia0, il]
+
+print("Aggregate expected lifetime utility with pension", avg_lifetime_utility)
+
 plt.figure()
 plt.plot(a, aplus[0, :, 0], marker='o', label="low productivity")
 plt.plot(a, aplus[0, :, 1], marker='s', label="mid productivity")
